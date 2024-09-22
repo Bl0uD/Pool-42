@@ -6,7 +6,7 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 21:42:04 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/19 19:27:50 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/21 12:35:27 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	nbr = ft_itoa_base(t, base_to);
 	return (nbr);
 }
-
+/*
 int	main(int argc, char *argv[])
 {
 	char	*nbr;
@@ -105,4 +105,4 @@ int	main(int argc, char *argv[])
 	free(nbr);
 	return (0);
 }
-
+*/
