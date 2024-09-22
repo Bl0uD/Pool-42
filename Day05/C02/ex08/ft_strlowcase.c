@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/08 16:33:54 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/09 12:08:09 by jdupuis          ###   ########.fr       */
+/*   Created: 2024/09/09 14:34:04 by jdupuis           #+#    #+#             */
+/*   Updated: 2024/09/13 11:52:55 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-char	ft_str_is_strlowcase(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int		i;
 
@@ -22,21 +22,21 @@ char	ft_str_is_strlowcase(char *str)
 	{
 		if ((str[i] >= 'A' && str[i] <= 'Z'))
 			str[i] = str[i] + 32;
-		write (1, &str[i], 1);
 		i++;
 	}
-	return (*str);
+	str[i] = '\0';
+	return (str);
 }
 /*
 int	main(void)
 {
-//	char str[2000] = "CouCOuLesAmis";
+	char str[2000] = "CouCOuLesAmis";
 //	char *str = "coucoulesamis";
-	char str[2000] = "Coucou les amis";
+//	char str[2000] = "Coucou les amis";
 //	char *str = "Coucoules2Amis";
 //	char *str = "";
 
-	ft_str_is_strlowcase(str);
+	printf("%s",ft_strlowcase(str));
 	return (0);
 }
 */

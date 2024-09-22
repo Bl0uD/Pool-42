@@ -6,7 +6,7 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 00:18:38 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/12 16:53:46 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/12 20:24:01 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,17 @@ int	main(int argc, char *argv[])
 	int	j;
 
 	i = 1;
-	j = i + 1;
-	while (i < argc - 2)
+	while (i < argc -1)
 	{
-		if (ft_strcmp(argv[i], argv[j]) > 0)
+		j = i + 1;
+		while (j < argc)
 		{
-			ft_swap(&argv[i], &argv[j]);
-			i = 1;
+			if (ft_strcmp(argv[i], argv[j]) > 0)
+			{
+				ft_swap(&argv[i], &argv[j]);
+				i = 1;
+			}
+			j++;
 		}
 		i++;
 	}

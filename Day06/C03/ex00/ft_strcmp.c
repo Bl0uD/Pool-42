@@ -6,7 +6,7 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 10:04:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/09 20:06:22 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/11 09:54:15 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	ft_strcmp(char *s1, char *s2)
 /*
 int	main(void)
 {
-//	char	*s1 = "Coucou les amis";
-	char	*s1 = "";
-	char	*s2 = "Coucou les amis";
-//	char	*s2 = "Coucou les";
+	char	*s1 = "Coucou les amis";
+//	char	*s1 = "";
+//	char	*s2 = "Coucou les amis";
+	char	*s2 = "Coucou les";
 //	char	*s2 = "";
-
+	printf("%s\n%s\n", s1, s2);
 	printf("%d",ft_strcmp(s1, s2));
 	return (0);
 }

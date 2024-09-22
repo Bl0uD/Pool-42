@@ -6,12 +6,12 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 16:36:03 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/04 19:09:35 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/19 15:12:03 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_printf(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -39,8 +39,8 @@ void	ft_print_comb2(void)
 			ft_affichage(n1, n2);
 			if (n1 != 98 || n2 != 99)
 			{
-				ft_printf(',');
-				ft_printf(' ');
+				ft_putchar(',');
+				ft_putchar(' ');
 			}
 			n2++;
 		}

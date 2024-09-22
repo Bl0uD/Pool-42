@@ -6,7 +6,7 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 20:32:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/11 18:09:41 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/13 11:37:31 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_putnbr(int nb)
 		nb *= -1;
 		write (1, "-", 1);
 	}
-	res = (nb % 10) + '0';
 	if (nb > 9)
 		ft_putnbr(nb / 10);
+	res = (nb % 10) + '0';
 	write(1, &res, 1);
 }
 /*
@@ -38,7 +38,7 @@ int	main(void)
 {
 	int	nb;
 
-	nb = 1221;
+	nb = 83648;
 	ft_putnbr(nb);
 	return (0);
 }
