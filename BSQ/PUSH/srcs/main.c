@@ -6,131 +6,101 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:41:32 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/23 19:49:11 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/24 18:03:56 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 #include <stdlib.h>
 
-char	*ft_read_file(char *file,char *map)
+char	*ft_read_number(char *file, char *map, int *sw)
 {
 	int	fd;
-	int	bytes_read;
 
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
 		write(1, "Erreur d'ouverture du fichier\n", 30);
+		close(fd);
 		return (NULL);
 	}
-	bytes_read = read(fd, file, sizeof(file) - 1);
-	if (bytes_read == -1)
+	while (*sw > 0)
+	{
+		file = ft_realloc(file, ft_strlen(file + 1024));
+		*sw = read(fd, file, 1023);
+	}
+	if (*sw == -1)
 	{
 		write(1, "Erreur de lecture du fichier\n", 29);
 		close(fd);
 		return (NULL);
 	}
-	file[bytes_read] = '\0';
+	file[*sw] = '\0';
 	close(fd);
 	return (file);
 }
-
-char	*ft_read_number(char *first_char, char *map)
+/*
+char	*ft_read_number(char *file, char *map, int *sw)
 {
 	int	fd;
-	int	bytes_read;
 
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
-        write(1, "Erreur d'ouverture du fichier\n", 30);
-		return (NULL);
-	}
-	bytes_read = read(fd, first_char, sizeof(first_char) - 1);
-	if (bytes_read == -1)
-	{
-		write(1, "Erreur de lecture du fichier\n", 29);
+		write(1, "Erreur d'ouverture du fichier\n", 30);
 		close(fd);
 		return (NULL);
 	}
-	first_char[bytes_read] = '\0';
+	*sw = read(fd, file, 999999999999);
+	if (*sw == -1)
+	{
+		write(1, "Erreur de lecture du nb fichier\n", 32);
+		close(fd);
+		return (NULL);
+	}
+	file[*sw] = '\0';
 	close(fd);
-	return (first_char);
+	return (file);
 }
-
+*/
 int	main(int ac, char **av)
 {
-	int		nb_lines;
-	int		l;
-	int	i;
-	char	first_char[10];
+	int		tab_int[3];
 	char	*file;
-	char	**temp;
+	char	*first_char;
 	char	**map;
 
 	(void)ac;
-	ft_read_number(first_char, av[1]);
-	nb_lines = ft_atoi(first_char, ft_strlen((first_char) - 3));
-	map = (char **)malloc((nb_lines + 1) * sizeof(char *));
-	if (map == NULL)
+	file = malloc(sizeof(char) * 999999999);
+	ft_read_number(file, av[1], &tab_int[2]);
+	map = ft_split(file, '\n');
+	first_char = map[0];
+	tab_int[2] = ft_strlen(first_char);
+	tab_int[0] = ft_atoi(first_char, tab_int[2] - 3);
+	tab_int[1] = 0;
+	while (tab_int[1] <= tab_int[0])
+		tab_int[1]++;
+	printf("MAP [%d] : %s", tab_int[1], map[tab_int[1]]);
+	if (!ft_check_map(map, tab_int[0]))
 	{
-		write(1, "Erreur d'allocation de map\n", 27);
-		return (1);
+		write(2, "map error\n", 10);
+		return (0);
 	}
-	file = (char *)malloc(9999999 * sizeof(char));
-	if (file == NULL)
+	while (tab_int[0] >= 0)
 	{
-		write(1, "Erreur d'allocation de file\n", 29);
-		free(map);
-		return (1);
+		free(map[tab_int[0]]);
+		tab_int[0]--;
 	}
-	if (ft_read_file(file, av[1]) == NULL)
-	{
-		free(map);
-		free(file);
-		return (1);
-	}
-	temp = ft_split(file, '\n');
-	if (temp == NULL)
-	{
-		write(1, "Erreur dans ft_split\n", 21);
-		free(map);
-		free(file);
-		return (1);
-	}
-	l = 0;
-	while (temp[l])
-	{
-		map[l] = (char *)malloc((ft_strlen(temp[l]) + 1) * sizeof(char));
-		if (map[l] == NULL)
-		{
-			write(1, "Erreur d'allocation pour une ligne de map\n", 42);
-			while (--l >= 0)
-				free(map[l]);
-			free(map);
-			free(file);
-			return (1);
-		}
-		ft_strcpy(map[l], temp[l]);
-		printf("%s\n",map[l]);
-		l++;
-	}
-	map[l] = NULL;
-//	printf("%d", ft_check_map(map));
-	i = 0;
-	while (temp[i])
-	{
-		free(temp[i]);
-		i++;
-	}	
-	while (l >= 0)
-	{
-		free(map[l]);
-		l--;
-	}
-	free(temp);
-	free(map);
 	free(file);
 	return (0);
 }
+/*----------------------
+		LEGENDE : 
+tab_int[0] = nb_lines;
+tab_int[1] = line;
+tab_int[2] = size_line;
+
+		UTILS :
+
+printf("first char : %s", first_char);
+-----------------------*/

@@ -6,23 +6,23 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 18:07:29 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/23 18:28:04 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/24 12:15:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-void	ft_realloc(void *str, int new, int old)
+char	*ft_realloc(char *str, int size)
 {
 	char	*newstr;
-	int		i;
 
-	i = 0;
-	newstr = ft_calloc(new, sizeof(char));
-	while (i < old)
-	{
-		newstr[i] = ((char *)str)[i];
-		i++;
-	}
+	newstr = ft_strndup(str, size);
 	free(str);
+	if (!newstr)
+	{
+		free(newstr);
+		write(1, "Error realloc\n", 14);
+		return (0);
+	}
+	return (newstr);
 }

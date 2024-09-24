@@ -6,7 +6,7 @@
 #    By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 13:28:13 by jdupuis           #+#    #+#              #
-#    Updated: 2024/09/23 19:26:25 by jdupuis          ###   ########.fr        #
+#    Updated: 2024/09/24 14:29:00 by jdupuis          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,14 +24,14 @@ OBJ_FILES = $(patsubst $(SRCDIR)%.c, $(OBJDIR)%.o, $(SRC_FILES))
 
 # Options du compilateur
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INCDIR)
+CFLAGS = -Wall -g -Wextra -Werror -I$(INCDIR)
 
 # Règle par défaut
 all: $(NAME)
 
 # Compilation de l'exécutable
 $(NAME): $(OBJ_FILES)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES) -fsanitize=address -g
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES) #-fsanitize=address -g
 
 # Compilation des fichiers objets
 $(OBJDIR)%.o: $(SRCDIR)%.c | $(OBJDIR)

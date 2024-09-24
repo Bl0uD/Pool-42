@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map_atleast_onecase.c                     :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 12:38:04 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/24 16:56:52 by jdupuis          ###   ########.fr       */
+/*   Created: 2024/09/24 11:27:41 by jdupuis           #+#    #+#             */
+/*   Updated: 2024/09/24 15:31:02 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Il y a au moins une ligne d’au moins une case.
-
 #include "ft.h"
 
-int	ft_check_map_atleast_onecase(char **map, int nb_lines)
+char	*ft_strndup(char *str, int n)
 {
-	char	empty;
 	int		i;
-	int		j;
-	int		is_empty;
+	char	*res;
 
-	empty = map[0][ft_strlen(map[0]) - 4];
-	i = 1;
-	while (i <= nb_lines)
+	i = 0;
+	res = (char *)malloc(sizeof(char) * ft_strlen(str) + 2);
+	while (str[i] && i <= n)
 	{
-		j = 0;
-		is_empty = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] == empty)
-			{
-				is_empty = 1;
-				break ;
-			}
-			j++;
-		}
-		if (is_empty == 0)
-			return (0);
+		res[i] = str[i];
 		i++;
 	}
-	return (1);
+	res[i - 1] = '\n';
+	res[i] = '\0';
+	return (res);
 }

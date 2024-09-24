@@ -6,7 +6,7 @@
 /*   By: norabino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 09:08:02 by norabino          #+#    #+#             */
-/*   Updated: 2024/09/23 17:33:45 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/24 17:38:11 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,14 @@
 
 #include "ft.h"
 
-int	ft_check_map(char	**map)
+int	ft_check_map(char **map, int nb_lines)
 {
-	if (ft_check_line_len(map)
-		&& ft_check_map_atleast_onecase(map)
-		&& ft_check_map_endline(map)
-		&& ft_check_chars(map)
-		&& ft_check_first_line(map)
-		&& ft_check_printable_chars(map))
-	{
+	if (ft_check_line_len(map, nb_lines)
+		&& ft_check_map_atleast_onecase(map, nb_lines)
+		&& ft_check_map_endline(map, nb_lines)
+		&& ft_check_chars(map, nb_lines)
+		&& ft_check_first_line(map, nb_lines)
+		&& ft_check_printable_chars(map, nb_lines))
 		return (1);
-	}
-	else
-	{
-		write(2, "map error\n", 10);
-		return (0);
-	}
+	return (0);
 }
