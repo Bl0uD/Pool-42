@@ -6,13 +6,13 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:44:01 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/24 17:34:01 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/25 09:42:52 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-char **ft_while(char *str,char sep, char **result)
+char	**ft_while(char *str, char sep, char **result)
 {
 	int		i;
 	int		j;
@@ -38,7 +38,7 @@ char **ft_while(char *str,char sep, char **result)
 
 char	**ft_split(char *str, char sep)
 {
-	char    **result;
+	char	**result;
 	int		i;
 	int		count;
 
@@ -52,6 +52,6 @@ char	**ft_split(char *str, char sep)
 	}
 	result = (char **)malloc((count + 1) * sizeof(char *));
 	if (!result)
-	    return NULL;
+		return (NULL);
 	return (ft_while(str, sep, result));
 }

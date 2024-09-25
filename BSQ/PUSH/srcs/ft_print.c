@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: norabino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 18:03:59 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/25 09:43:16 by jdupuis          ###   ########.fr       */
+/*   Created: 2024/09/25 16:46:19 by norabino          #+#    #+#             */
+/*   Updated: 2024/09/25 16:48:05 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-void	*ft_calloc(unsigned long count, unsigned long size)
+void	ft_print(char	**map)
 {
-	void	*ptr;
+	int	i;
 
-	ptr = (void *)malloc(count * size);
-	if (!ptr)
-		return (0);
-	ft_support(ptr, count);
-	return (ptr);
+	while (map[i])
+	{
+		write(1, map[i], ft_strlen(map[i] + 1));
+		i++;
+	}
 }

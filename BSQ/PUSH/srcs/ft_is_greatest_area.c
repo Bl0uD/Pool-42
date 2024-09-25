@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_is_greatest_area.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 18:03:59 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/25 09:43:16 by jdupuis          ###   ########.fr       */
+/*   Created: 2024/09/25 09:50:01 by jdupuis           #+#    #+#             */
+/*   Updated: 2024/09/25 16:32:51 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-void	*ft_calloc(unsigned long count, unsigned long size)
+int    ft_is_greatest_area(int greatest, int current)
 {
-	void	*ptr;
-
-	ptr = (void *)malloc(count * size);
-	if (!ptr)
-		return (0);
-	ft_support(ptr, count);
-	return (ptr);
+	if (current > greatest)
+		return (current);
+	return (greatest);
 }

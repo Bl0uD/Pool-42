@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_write_over__map.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: norabino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 18:03:59 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/25 09:43:16 by jdupuis          ###   ########.fr       */
+/*   Created: 2024/09/25 15:55:17 by norabino          #+#    #+#             */
+/*   Updated: 2024/09/25 16:51:17 by norabino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-void	*ft_calloc(unsigned long count, unsigned long size)
+char	**ft_write_over_map(char	**map, int *curs_co, int len)
 {
-	void	*ptr;
 
-	ptr = (void *)malloc(count * size);
-	if (!ptr)
-		return (0);
-	ft_support(ptr, count);
-	return (ptr);
+	int	i = curs_co[0];
+	int	j = curs_co[1];
+
+	while (i < len)
+	{
+		while (j < len)
+			map[i][j] = map[0][ft_strlen(map[0]) - 2];
+	}
+	return (map);
 }
