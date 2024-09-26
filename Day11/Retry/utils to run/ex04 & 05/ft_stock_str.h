@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 13:32:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/21 14:03:05 by jdupuis          ###   ########.fr       */
+/*   Created: 2024/09/21 17:27:09 by jdupuis           #+#    #+#             */
+/*   Updated: 2024/09/22 12:47:10 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-# define FT_ABS_H
-# define ABS abs
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
 
-int	abs(int Value)
+typedef struct s_stock_str
 {
-	if (Value < 0)
-		return (-Value);
-	return (Value);
-}
+	int		size;
+	char	*str;
+	char	*copy;
+}	t_stock_str;
 
 #endif

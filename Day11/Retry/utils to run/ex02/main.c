@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 13:32:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/21 14:03:05 by jdupuis          ###   ########.fr       */
+/*   Created: 2024/09/21 14:01:44 by jdupuis           #+#    #+#             */
+/*   Updated: 2024/09/21 14:07:24 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-# define FT_ABS_H
-# define ABS abs
+#include <stdio.h>
+#include "ft_abs.h"
 
-int	abs(int Value)
+int	main(void)
 {
-	if (Value < 0)
-		return (-Value);
-	return (Value);
-}
+	int	values[] = {0, -5, 42, -100, 7};
+	int	i;
 
-#endif
+	i = 0;
+	while (i < 5)
+	{
+		printf("ABS(%d) = %d\n", values[i], abs(values[i]));
+		i++;
+	}
+	return (0);
+}

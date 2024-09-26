@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 10:04:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/09 20:06:22 by jdupuis          ###   ########.fr       */
+/*   Created: 2024/09/22 17:17:37 by jdupuis           #+#    #+#             */
+/*   Updated: 2024/09/23 11:26:49 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft.h"
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	if (s1[i] == '\0' && s2[i] != '\0')
-		return (-1);
-	else if (s1[i] != '\0' && s2[i] == '\0')
-		return (1);
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
-}
-/*
 int	main(void)
 {
-//	char	*s1 = "Coucou les amis";
-	char	*s1 = "";
-	char	*s2 = "Coucou les amis";
-//	char	*s2 = "Coucou les";
-//	char	*s2 = "";
+	char	c = 'C';
+	int		a = 3;
+	int		b = 2;
+	char	*str = " Bonjour les amis";
+	char	*s1 = " coucou";
+	char	*s2 = " coucou";
 
-	printf("%d",ft_strcmp(s1, s2));
+	ft_putchar(c);
+	ft_swap(&a, &b);
+	ft_putstr(str);
+	ft_strlen(str);
+	ft_strcmp(s1, s2);
+
+	printf(" Lenth of str : %d\n", ft_strlen(str));
+	printf(" Result of compare :  %d\n",ft_strcmp(s1, s2));
+	printf(" A = %d\n", a);
+	printf(" B = %d\n", b);
+	
 	return (0);
 }
-*/

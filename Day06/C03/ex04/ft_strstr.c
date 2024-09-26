@@ -6,11 +6,10 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 16:37:56 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/19 10:53:38 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/10 11:53:15 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdio.h>
 
 int	ft_strlen(char *c)
@@ -18,7 +17,7 @@ int	ft_strlen(char *c)
 	int	i;
 
 	i = 0;
-	while (c[i] != '\0')
+	while (c[i])
 		i++;
 	return (i);
 }
@@ -30,34 +29,29 @@ char	*ft_strstr(char *str, char *to_find)
 
 	i = 0;
 	j = 0;
-	if (to_find[0] == '\0')
-	{
-		if (str[i] == '\0')
-			return ("");
+	if (!*to_find)
 		return (str);
-	}
 	while (str[i])
 	{
-		j = 0;
-		while (str[i + j] == to_find[j])
+		if (str[i] == to_find[j])
 		{
 			j++;
-			if (j == ft_strlen(to_find))
-				return (&str[i - j] + ft_strlen(to_find));
 		}
+		else
+			j = 0;
+		if (j == ft_strlen(to_find))
+			return (&str[i - j + 1]);
 		i++;
 	}
-	return (0);
+	return (str);
 }
 /*
-int main(int argc, char *argv[])
+int main(void)
 {
-	char	*str = argv[1];
-	char	*to_find = argv[2];
-	
-	(void)argc;
+	char	*str = "Coucou les amis, comment allez-vous ?";
+	char	*to_find = "";
+
 	printf("%s\n", str);
-	printf("%s\n", strstr(str, to_find));
 	printf("%s", ft_strstr(str, to_find));
 	return (0);
 }

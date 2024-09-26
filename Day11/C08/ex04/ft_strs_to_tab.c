@@ -6,7 +6,7 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 14:29:48 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/22 12:50:47 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/26 10:24:58 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,70 @@ struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	stock[i].str = 0;
 	return (stock);
 }
+/*
+#include <unistd.h>
+#include <stdlib.h>
+
+void	ft_putstr(char *c)
+{
+int	i;
+
+i = 0;
+while (c[i])
+{
+write(1, &c[i], 1);
+i++;
+}
+write(1, "\n", 1);
+}
+
+void	ft_putnbr(int nbr)
+{
+char	res;
+
+res = 0;
+if (nbr < -2147483648)
+{
+write(1, "-2147483648", 1);
+return ;
+}
+if (nbr < 0)
+{
+write(1, "-", 1);
+nbr *= -1;
+}
+res = nbr % 10 + '0';
+if (nbr > 9)
+{
+ft_putnbr(nbr / 10);
+}
+write (1, &res, 1);
+}
+
+void	ft_show_tab(struct s_stock_str *par)
+{
+int	i;
+
+i = 0;
+while (par[i].str != NULL)
+{
+ft_putstr(par[i].str);
+ft_putnbr(par[i].size);
+write (1, "\n", 1);
+ft_putstr(par[i].copy);
+i++;
+}
+}
+*/
+/*--------------------------------------------------------*/
+/*
+int	main(void)
+{
+	char				*av[7] = {"Bonjour", "comment", "ca", "va", "?"};
+	int					ac = 5;
+	struct s_stock_str	*a = ft_strs_to_tab(ac, av);
+
+	ft_show_tab(a);
+	(void)a;
+	return (0);
+}*/

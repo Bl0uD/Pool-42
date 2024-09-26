@@ -6,7 +6,7 @@
 /*   By: jdupuis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 10:29:12 by jdupuis           #+#    #+#             */
-/*   Updated: 2024/09/11 10:18:37 by jdupuis          ###   ########.fr       */
+/*   Updated: 2024/09/09 16:34:28 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 /*
 int main(void)
 {
-	unsigned int	n = 12;
+	unsigned int	n = 15;
 //	char	*s1 = "";
 	char	*s1 = "Coucou les qmis";
 //	char	*s2 = "";
@@ -42,5 +42,4 @@ int main(void)
 
 	printf("%d", ft_strncmp(s1, s2, n));
 	return (0);
-}
-*/
+}*/
